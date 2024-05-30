@@ -1,10 +1,4 @@
-<template>
-    <div>
-      <p>{{ msg }}</p>
-    </div>
-  </template>
-  
-  <script>
+<script lang="ts">
 import axios from 'axios';
 
 export default {
@@ -16,13 +10,12 @@ export default {
   },
   methods: {
     getMessage() {
-      const path = 'http://localhost:5001/ping';
+      const path = 'http://127.0.0.1:5000';
       axios.get(path)
         .then((res) => {
           this.msg = res.data;
         })
         .catch((error) => {
-
           console.error(error);
         });
     },
@@ -32,5 +25,13 @@ export default {
   },
 };
 </script>
+
+<template>
+  <div>
+    <button type="button" class="btn btn-primary">{{ msg }}</button>
+  </div>
+</template>
+  
+
 
   

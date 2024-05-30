@@ -1,12 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import PingComponent from '../components/PingComponent.vue'
+import PingComponent from '@/components/PingComponent.vue'
+import BooksComponent from '@/components/BooksComponent.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/Ping',
-      name: 'ping',
+      path: '/books',
+      name: 'Books',
+      component: BooksComponent
+    },
+    {
+      path: '/ping',
+      name: 'Ping',
       component: PingComponent
     }
   ]

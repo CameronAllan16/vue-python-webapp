@@ -47,6 +47,7 @@ CORS(app, resources={r'/*': {'origins': '*'}})
 def ping_pong():
     return jsonify('pong!')
 
+# GET/ADD Book(s)
 @app.route('/books', methods=['GET', 'POST'])
 def all_books():
     response_object = {'status': 'success'}
@@ -63,6 +64,7 @@ def all_books():
         response_object['books'] = BOOKS
     return jsonify(response_object)
 
+# Update book
 @app.route('/books/<book_id>', methods=['PUT'])
 def single_book(book_id):
     response_object = {'status':'success'}

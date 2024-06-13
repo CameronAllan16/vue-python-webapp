@@ -4,9 +4,11 @@ export default {
 };
 </script>
 <template>
-    <div>
-        <div class="alert alert-success" role="alert"> {{ message }}</div>
-        <br />
+    <div class="alert alert-warning alert-dismissable fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 
 </template>

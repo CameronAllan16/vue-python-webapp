@@ -2,7 +2,7 @@
 Hello world, this is a Vue app built with a python backend. Hopefully I stick to this project 
 
 ## Initialize the file folder
-upone cloning, navigate to client directory by using 
+upon cloning, navigate to client directory by using 
 `cd client` 
 and run 
 `npm install`

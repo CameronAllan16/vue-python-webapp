@@ -1,30 +1,28 @@
+import sqlite3
 from flask import Flask, jsonify, request
 from flask_cors import CORS
+import json
 import uuid
 
-#Static data set for testing GET route
-BOOKS = [
-    {
-        'id': uuid.uuid4().hex,
-        'title': 'On the Road',
-        'author': 'Jack Kerouac',
-        'read': True
-    },
-    {
-        'id': uuid.uuid4().hex,
-        'title': 'Harry Potter and the Philospher\'s Stone',
-        'author': 'J. K. Rowling',
-        'read': False
-    },
-    {
-        'id': uuid.uuid4().hex,
-        'title' : 'Green Eggs and Ham',
-        'author': 'Dr. Seuss',
-        'read': True
-    }
-]
+# DB Section
 
-#Section for helper functions
+# Add a book function
+def add_book(conn, book):
+    query = '''INSERT INTO book_database(title,author,read)
+                VALUES(?,?,?)'''
+    cursor = conn.cursor()
+    cursor.execute(query, book)
+    conn.commit()
+    return cursor.lastrowid
+
+def remove_book(conn, book):
+    query = '''DELETE FROM book_database WHERE title = %s '''
+    cursor = conn.cursor()
+    cursor.execute(query, book)
+    conn.commit()
+    print(cursor.rowcount, "Book removed")
+
+# Helper functions
 
 #helper to remove a book
 def remove_book(book_id):
@@ -79,6 +77,27 @@ def single_book(book_id):
         })
         response_object['message'] = 'Book updated!'
     return jsonify(response_object)
+
+def main():
+    try: 
+        with sqlite3.connect('book_database.db') as conn:
+    
+            # Add a new book
+            book = ('Tester Jones: The battle of SQLite', 'Tester Jones','True')
+            book_id = add_book(conn, book)
+            print(f'Create a new book with the id{book_id}')
+
+    # Handle Errors with db
+    except sqlite3.Error as error:
+        print('Error occured - ', error)
+
+    #Close DB connection irrespective of success or failure
+    finally: 
+
+        if sqliteConnection:
+            sqliteConnection.close()
+            print('SQLite Connection Closed')
+
 
 if __name__ == '__main__':
     app.run()

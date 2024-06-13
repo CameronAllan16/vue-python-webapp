@@ -1,5 +1,5 @@
 # Vue - Python WebApp
-Hello world, this is a Vue app built with a python backend. Hopefully I stick to this project 
+Hello world, this is a Vue app built with a python backend, and an SQLite database. The database quite literally isn't working or is properly connected, it just exists right now.
 
 ## Initialize the file folder
 upon cloning, navigate to client directory by using 
@@ -26,7 +26,7 @@ directory by using
 
 run 
 `python3 app.py` 
-to initialize the development server
+to initialize the development backend server
 
 ## navigate to a browser and open development server
 
@@ -34,4 +34,6 @@ open your preferred browsing service and paste
 `http://localhost:5173` 
 into the url search box at the top and then hit 
 `enter`
+
+and boom! A 'fully' functioning web interface ! 
 

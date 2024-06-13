@@ -1,0 +1,11 @@
+Id,Title,Author,Read
+b1fc71b9-d01e-4a0d-b616-a126d0b7e446,On the Road,Jack Kerouac,True
+10839700-7185-4374-a251-4027a8a893c4,Harry Potter and the Philospher's Stone,J. K. Rowling,False
+4461d5ec-29ae-415f-bee5-9f5f61f56722,Green Eggs and Ham,Dr. Seuss,True
+
+CREATE TABLE "BOOKS" (
+	"Id"	TEXT ,
+	"Title"	TEXT,
+	"Author"	TEXT,
+	"Read"	TEXT
+)

@@ -11,7 +11,7 @@ const router = createRouter({
       component: BooksComponent
     },
     {
-      path: '/ping',
+      path: '/',
       name: 'Ping',
       component: PingComponent
     }

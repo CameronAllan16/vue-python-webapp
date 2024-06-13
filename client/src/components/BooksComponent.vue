@@ -24,7 +24,7 @@ export default {
         };
     },
     components: {
-        alert: Alert
+        alert: Alert,
     },
     methods: {
         addBook(payload) {
